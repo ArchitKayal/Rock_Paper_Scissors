@@ -22,5 +22,53 @@ function getHumanChoice () {
     }
 }
 
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+let humanScore = 0
+let computerScore = 0
+
+function playRound (humanChoice, computerChoice) {
+    if(humanChoice === computerChoice){
+        console.log("It's a tie! Try again")
+        return
+    }
+    if(humanChoice === "Rock"){
+        if(computerChoice === "Paper"){
+            computerScore++
+            console.log("Computer Wins!")
+        }else{
+            humanScore++
+            console.log("You win!")
+        }
+    }else if(humanChoice === "Paper"){
+        if(computerChoice === "Scissor"){
+            computerScore++
+            console.log("Computer Wins!")
+        }else{
+            humanScore++
+            console.log("You win!")
+        }
+    }else if(humanChoice === "Scissor"){
+        if(computerChoice === "Rock"){
+            computerScore++
+            console.log("Computer Wins!")
+        }else{
+            humanScore++
+            console.log("You win!")
+        }
+    }
+}
+
+function playGame() {
+     for(i=0;i<5;i++){
+        let humanChoice = getHumanChoice()
+        let computerChoice = getComputerChoice()
+        playRound(humanChoice, computerChoice)
+        console.log(`Your score: ${humanScore}  Computer Score ${computerScore}`)
+     }
+}
+
+playGame()
+
+
+
+
+
